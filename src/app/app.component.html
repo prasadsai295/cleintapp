@@ -1,1 +1,5 @@
-{{title}}
+<h1>{{title}}</h1>
+
+<ul>
+    <li *ngFor="let user of users; index as i">{{i+1}} . {{user.name}}</li>
+</ul>
