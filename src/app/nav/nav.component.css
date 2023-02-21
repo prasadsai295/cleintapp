@@ -1,0 +1,12 @@
+.dropdown-toggle, .dropdown-item{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dropdown-toggle::after{
+    margin-top: 10px;
+}
+
+.nav-item, .nav-link{
+    cursor: pointer;
+}
