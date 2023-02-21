@@ -19,10 +19,9 @@ export class AccountService {
       map((res: any) => {
         const user = res;
         if(user){
-          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('token', JSON.stringify(user.token));
           this.currentUserSource.next(user);
         }
-
       })
     )
   }
@@ -32,7 +31,7 @@ export class AccountService {
       map((res: any) => {
         const user = res;
         if(user){
-          localStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('token', JSON.stringify(user.token));
           this.currentUserSource.next(user);
         }
       })
@@ -48,7 +47,7 @@ export class AccountService {
   }
 
   logout(){
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     this.currentUserSource.next(null);
   }
 
