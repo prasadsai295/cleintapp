@@ -8,11 +8,11 @@ import { AccountService } from './services/account.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Chat App';
   
   constructor(private accountService: AccountService){}
 
   ngOnInit() {
+    this.accountService.getUsers().subscribe(x => x);
     this.setCurrentUser();
   }
 

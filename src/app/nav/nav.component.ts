@@ -19,6 +19,7 @@ export class NavComponent implements OnInit {
   constructor(public accountService: AccountService, private router: Router, private toast: ToastrService) { }
 
   ngOnInit(): void {
+    console.log(this.accountService.currentUser$);
     this.accountService.currentUser$.subscribe({
       next: res => 
       {
@@ -31,8 +32,7 @@ export class NavComponent implements OnInit {
  
   login(){
     this.accountService.login(this.model).subscribe({
-      next: res => {this.toast.success('login user successfully.');},
-      error: error => {this.toast.error(error.error);}
+      next: res => {this.toast.success('login user successfully.');}
      })
   }
   

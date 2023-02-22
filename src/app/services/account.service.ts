@@ -19,7 +19,7 @@ export class AccountService {
       map((res: any) => {
         const user = res;
         if(user){
-          localStorage.setItem('token', JSON.stringify(user.token));
+          localStorage.setItem('user', JSON.stringify(user));
           this.currentUserSource.next(user);
         }
       })
@@ -31,23 +31,23 @@ export class AccountService {
       map((res: any) => {
         const user = res;
         if(user){
-          localStorage.setItem('token', JSON.stringify(user.token));
+          localStorage.setItem('user', JSON.stringify(user));
           this.currentUserSource.next(user);
         }
       })
     );
   }
 
-  // getUsers(){
-  //   return this.httpClient.get(this.baseUrlV1+'user');
-  // }
+  getUsers(){
+    return this.httpClient.get(this.baseUrlV1+'user/server-error');
+  }
 
   setCurrentUser(user: LoginResponse){
     this.currentUserSource.next(user);
   }
 
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.currentUserSource.next(null);
   }
 

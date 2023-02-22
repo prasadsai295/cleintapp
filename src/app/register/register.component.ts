@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
   // @Input() usersFromHomeComponent: any;
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
+  validateErrors = [];
 
   constructor(private accountService: AccountService, private toastr: ToastrService) { }
 
@@ -25,9 +26,7 @@ export class RegisterComponent implements OnInit {
         this.cancel();
       },
       error: error => {
-        debugger;
-        if(error.error?.errors?.count )
-        console.log(error);
+        this.validateErrors = error;
       }
     })
   }

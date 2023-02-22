@@ -1,5 +1,11 @@
 
 
+
+<div class="row mt-5" *ngIf="validateErrors.length > 0">
+    <ul class="text-danger">
+        <li *ngFor="let error of validateErrors">{{error}}</li>
+    </ul>
+</div>
 <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
     <h2 class="text-center text-primary">Sign Up</h2>
     <hr>
