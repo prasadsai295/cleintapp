@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginResponse } from './models/loginResponse';
 import { AccountService } from './services/account.service';
+import { LoadService } from './services/load.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,6 @@ export class AppComponent implements OnInit{
   constructor(private accountService: AccountService){}
 
   ngOnInit() {
-   // this.accountService.getUsers().subscribe(x => x);
     this.setCurrentUser();
   }
 

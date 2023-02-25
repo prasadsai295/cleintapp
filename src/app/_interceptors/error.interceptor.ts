@@ -27,6 +27,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 const modelStateErros = [];
                 for(const key in error.error.errors){
                   if(error.error.errors[key]){
+                    this.toaster.error(error.error.errors[key]);
                     modelStateErros.push(error.error.errors[key]);
                   }
                 }
@@ -46,7 +47,9 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.route.navigateByUrl('/server-error', navigationExtras);
               break;
             default:
+              if(error.status != 200){
               this.toaster.error(error.error, error.status.toString());
+              }
               break;
           }
         }
